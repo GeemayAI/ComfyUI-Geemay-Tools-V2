@@ -1,7 +1,7 @@
 [project]
 name = "comfyui-geemay-tools-v2"
 description = "专为建筑、室内、景观设计领域打造的高集成度、可视化提示词预设管理器 / A highly integrated visual prompt preset manager for architecture, interior, and landscape design."
-version = "1.0.2"
+version = "1.0.6"
 license = { file = "LICENSE" }
 readme = "README.md"
 requires-python = ">=3.10"

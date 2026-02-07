@@ -23,5 +23,10 @@ jobs:
       - name: Force Publish
         env:
           COMFY_ORG_API_KEY: ${{ secrets.COMFY_ORG_API_KEY }}
-        # 这里的 printf "n\n" | 是终极必杀技，强制回答所有问题
-        run: printf "n\n" | python -m comfy_cli node publish .
+        run: |
+          # 1. 强制创建配置文件，不让它弹 y/N
+          mkdir -p ~/.comfy_cli
+          echo '{"tracking_enabled": false}' > ~/.comfy_cli/config.json
+          
+          # 2. 执行发布（注意：publish 后面没有任何东西，没有点！）
+          python -m comfy_cli node publish
