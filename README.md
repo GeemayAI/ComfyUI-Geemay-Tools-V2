@@ -24,7 +24,7 @@ pip install -r ComfyUI-Geemay-Tools-V2\requirements.txt
 
 ## 更新日志
 
-### v1.0.1 (2026-02-7)
+### v1.0.2 (2026-02-7)
 - ✨ 初始版本发布
 
 ## 许可证

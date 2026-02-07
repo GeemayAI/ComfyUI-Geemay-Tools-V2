@@ -20,7 +20,12 @@ jobs:
       - name: Install comfy-cli
         run: pip install comfy-cli
 
-      - name: Publish to Comfy Registry
+      - name: Fix Config and Publish
         env:
           COMFY_ORG_API_KEY: ${{ secrets.COMFY_ORG_API_KEY }}
-        run: python -m comfy_cli node publish . --yes
+        run: |
+          # 下面这两行是专门治那个 y/N 弹窗的，强制让它闭嘴
+          mkdir -p ~/.comfy_cli
+          echo '{"tracking_enabled": false}' > ~/.comfy_cli/config.json
+          # 执行发布
+          python -m comfy_cli node publish .
