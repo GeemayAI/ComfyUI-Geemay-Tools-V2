@@ -1,17 +1,25 @@
 [project]
 name = "comfyui-geemay-tools-v2"
-description = "To enhance the usability of Nano Banana prompt words, a preset prompt word node was created."
-version = "0.1.0"
+description = "专为建筑、室内、景观设计领域打造的高集成度、可视化提示词预设管理器 / A highly integrated visual prompt preset manager for architecture, interior, and landscape design."
+version = "v1.0.1"
 license = { file = "LICENSE" }
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.9"
 dependencies = ["cryptography>=41.0.0"]
 
 [project.urls]
 Repository = "https://github.com/GeemayAI/ComfyUI-Geemay-Tools-V2"
+Homepage = "https://github.com/GeemayAI/ComfyUI-Geemay-Tools-V2"
 
 [tool.comfy]
 PublisherId = "GeemayAI"
-DisplayName = "ComfyUI-Geemay-Tools-V2"
+DisplayName = "Geemay Tools V2"
+Icon = "icon.png"
 
 [tool.comfy.nodes]
+# 节点分类
+categories = ["prompt", "text", "design"]
+# 包含的节点
+includes = [
+    "Geemay Preset Manager"
+]
