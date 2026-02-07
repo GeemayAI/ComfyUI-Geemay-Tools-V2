@@ -3,7 +3,7 @@ name: Publish to Comfy Registry
 on:
   push:
     tags:
-      - 'v*' # 当你推送以 v 开头的标签（如 v1.0.0）时触发
+      - 'v*'
 
 jobs:
   publish:
@@ -15,13 +15,12 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: '3.10'
 
       - name: Install comfy-cli
         run: pip install comfy-cli
 
-- name: Publish to Comfy Registry
+      - name: Publish to Comfy Registry
         env:
           COMFY_ORG_API_KEY: ${{ secrets.COMFY_ORG_API_KEY }}
-        # 加上 --yes 参数，让它不要在 CI 环境里问问题
         run: python -m comfy_cli node publish . --yes
