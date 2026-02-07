@@ -1,0 +1,17 @@
+[project]
+name = "comfyui-geemay-tools-v2"
+description = "To enhance the usability of Nano Banana prompt words, a preset prompt word node was created."
+version = "0.1.0"
+license = { file = "LICENSE" }
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = ["cryptography>=41.0.0"]
+
+[project.urls]
+Repository = "https://github.com/GeemayAI/ComfyUI-Geemay-Tools-V2"
+
+[tool.comfy]
+PublisherId = "GeemayAI"
+DisplayName = "ComfyUI-Geemay-Tools-V2"
+
+[tool.comfy.nodes]
