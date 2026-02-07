@@ -20,7 +20,8 @@ jobs:
       - name: Install comfy-cli
         run: pip install comfy-cli
 
-      - name: Publish to Comfy Registry
+- name: Publish to Comfy Registry
         env:
           COMFY_ORG_API_KEY: ${{ secrets.COMFY_ORG_API_KEY }}
-        run: python -m comfy_cli node publish .
+        # 加上 --yes 参数，让它不要在 CI 环境里问问题
+        run: python -m comfy_cli node publish . --yes
