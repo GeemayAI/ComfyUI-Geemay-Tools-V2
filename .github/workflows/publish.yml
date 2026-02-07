@@ -1,0 +1,26 @@
+name: Publish to Comfy Registry
+
+on:
+  push:
+    tags:
+      - 'v*' # 当你推送以 v 开头的标签（如 v1.0.0）时触发
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install comfy-cli
+        run: pip install comfy-cli
+
+      - name: Publish to Comfy Registry
+        env:
+          COMFY_ORG_API_KEY: ${{ secrets.COMFY_ORG_API_KEY }}
+        run: python -m comfy_cli node publish .
