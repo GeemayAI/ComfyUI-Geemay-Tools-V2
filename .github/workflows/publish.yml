@@ -15,17 +15,13 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: '3.11'
 
       - name: Install comfy-cli
         run: pip install comfy-cli
 
-      - name: Fix Config and Publish
+      - name: Force Publish
         env:
           COMFY_ORG_API_KEY: ${{ secrets.COMFY_ORG_API_KEY }}
-        run: |
-          # 下面这两行是专门治那个 y/N 弹窗的，强制让它闭嘴
-          mkdir -p ~/.comfy_cli
-          echo '{"tracking_enabled": false}' > ~/.comfy_cli/config.json
-          # 执行发布
-          python -m comfy_cli node publish .
+        # 这里的 printf "n\n" | 是终极必杀技，强制回答所有问题
+        run: printf "n\n" | python -m comfy_cli node publish .
